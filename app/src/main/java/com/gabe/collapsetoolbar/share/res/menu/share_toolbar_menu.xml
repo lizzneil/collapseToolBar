@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    app:showAsAction指定了按键的显示方式。-->
+    <!--    因为工具栏空间相对有限，我们可指定按键的显示方式，-->
+    <!--    never表示总在overflow menu中显示，-->
+    <!--    always表示总在工具栏显示，-->
+    <!--    ifRoom表示空间足够则显示在工具栏上，-->
+    <!--    withText表示空间足够的时候显示Title，-->
+    <!--    也可以用组合的方式：ifRoom|withTitle-->
+
+
+<!--    <item-->
+<!--        android:id="@+id/action_badge_first"-->
+<!--        android:icon="@drawable/ic_search_24dp"-->
+<!--        android:title="Add"-->
+<!--        app:showAsAction="ifRoom|withText"-->
+<!--        app:actionViewClass="androidx.appcompat.widget.SearchView"-->
+<!--        />-->
+    <item
+        android:id="@+id/action_share_right"
+        android:icon="@drawable/ic_temp_24dp"
+        android:title="@string/share"
+        app:showAsAction="ifRoom|withText"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"
+        />
+    <!--    app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"-->
+
+</menu>

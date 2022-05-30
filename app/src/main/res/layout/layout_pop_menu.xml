@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/ic_temp_24dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/pop_menu_first"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="第一项"
+                android:textColor="#FF000000"
+                android:textSize="14sp"
+                android:paddingRight="14dp"
+                android:paddingLeft="14dp"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/divide_line_color" />
+
+        <TextView
+                android:id="@+id/pop_menu_third"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="第二项二项"
+                android:textColor="#2049EE"
+                android:textSize="14sp"
+                android:paddingRight="14dp"
+                android:paddingLeft="14dp"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/divide_line_color" />
+
+        <TextView
+                android:id="@+id/pop_menu_fourth"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="第三项  第三项"
+                android:textColor="#FF000000"
+                android:textSize="14sp"
+                android:paddingRight="14dp"
+                android:paddingLeft="14dp"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/divide_line_color" />
+
+        <TextView
+                android:id="@+id/pop_menu_second"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textColor="#FF000000"
+                android:gravity="center"
+                android:text="设置"
+                android:textSize="14sp"
+                android:paddingRight="14dp"
+                android:paddingLeft="14dp"/>
+    </LinearLayout>
+</LinearLayout>

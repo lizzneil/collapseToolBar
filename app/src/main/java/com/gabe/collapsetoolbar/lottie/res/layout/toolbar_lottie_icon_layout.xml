@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="?attr/actionBarSize"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal">
+<!--加 LinearLayout 并限定 宽高 是避免 图标大小 失控（有时会很宽，我看到的有3位宽的。）
+   android:layout_width="?attr/actionBarSize"-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/watch_animation"
+        android:minWidth="?attr/actionBarSize"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/thumbup"
+        app:lottie_loop="true"  />
+<!--    app:lottie_speed="8"-->
+<!--    app:lottie_fileName="gift.json"-->
+</LinearLayout>

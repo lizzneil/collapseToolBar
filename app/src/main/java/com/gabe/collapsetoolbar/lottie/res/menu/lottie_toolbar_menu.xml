@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    app:showAsAction指定了按键的显示方式。-->
+    <!--    因为工具栏空间相对有限，我们可指定按键的显示方式，-->
+    <!--    never表示总在overflow menu中显示，-->
+    <!--    always表示总在工具栏显示，-->
+    <!--    ifRoom表示空间足够则显示在工具栏上，-->
+    <!--    withText表示空间足够的时候显示Title，-->
+    <!--    也可以用组合的方式：ifRoom|withTitle-->
+
+
+    <item
+        android:id="@+id/action_lottie_first"
+        android:icon="@drawable/ic_menu_24dp"
+        android:title="Add"
+        app:showAsAction="ifRoom|withText"
+        app:actionLayout="@layout/toolbar_lottie_icon_layout"
+        />
+    <item
+        android:id="@+id/action_lottie_second"
+        android:icon="@drawable/ic_scan_qr_24dp"
+        android:title="Remove"
+        app:showAsAction="ifRoom|withText"
+        />
+
+    <item
+        android:id="@+id/action_lottie_third"
+        android:icon="@drawable/ic_search_24dp"
+        android:title="Remove"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/action_lottie_fourth"
+        android:icon="@drawable/ic_refresh_24dp"
+        android:title="Other"
+        app:showAsAction="never"
+        />
+</menu>
