@@ -20,11 +20,13 @@
         />
     <item
         android:id="@+id/action_lottie_second"
+
         android:icon="@drawable/ic_scan_qr_24dp"
         android:title="Remove"
-        app:showAsAction="ifRoom|withText"
+        app:actionLayout="@layout/layout_gift"
+        app:showAsAction="always"
         />
-
+<!--    android:orderInCategory="100"-->
     <item
         android:id="@+id/action_lottie_third"
         android:icon="@drawable/ic_search_24dp"

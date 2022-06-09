@@ -44,7 +44,7 @@
                 app:title="GfG | Tool bar"
 
 
-                app:titleTextColor="#ffff"
+                app:titleTextColor="#09ff80"
                 android:elevation="0dp"/>
 
 <!--            android:theme="?attr/actionBarTheme"-->

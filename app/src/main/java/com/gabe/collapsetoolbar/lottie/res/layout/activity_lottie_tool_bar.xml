@@ -33,7 +33,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="GfG | Tool bar"
             app:titleCentered="true"
-            app:titleTextColor="#ffff0000" />
+            app:titleTextColor="#09ff80" />
 
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -42,7 +42,6 @@
         android:id="@+id/animation_view3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:scaleType="fitXY"
         app:lottie_autoPlay="true"
         app:lottie_loop="false"
@@ -62,13 +61,10 @@
         android:id="@+id/lottie_view_thumbup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:lottie_autoPlay="true"
+        app:lottie_autoPlay="false"
         app:lottie_loop="true"
-
-
         app:lottie_rawRes="@raw/thumbup" />
 
     <com.airbnb.lottie.LottieAnimationView
@@ -77,7 +73,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lottie_view_thumbup"
-        app:lottie_autoPlay="true"
+        app:lottie_autoPlay="false"
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/stop_go_radio_button" />
 

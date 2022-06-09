@@ -32,7 +32,7 @@
             app:subtitle="SubTitle"
             app:title="Title"
             app:titleCentered="true"
-            app:titleTextColor="#ffff0000">
+            app:titleTextColor="#09ff80">
 
             <!-- 加TextView是为了让标题居中，这个是IOS风格，Android不支持。所以自己实现。-->
             <TextView

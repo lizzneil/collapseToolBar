@@ -30,7 +30,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="GfG | Tool bar"
             app:titleCentered="true"
-            app:titleTextColor="#ffff0000" />
+            app:titleTextColor="#09ff80" />
 
     </com.google.android.material.appbar.AppBarLayout>
     <TextView

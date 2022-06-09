@@ -51,7 +51,7 @@ public class LottieToolBarActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        playLottieIndContainer();
+//        playLottieIndContainer();
     }
 
 
@@ -66,6 +66,21 @@ public class LottieToolBarActivity extends AppCompatActivity {
             m.setOptionalIconsVisible(true);
         }
 
+        MenuItem action_lottie_second = menu.findItem(R.id.action_lottie_second);
+
+        final View giftView2 = action_lottie_second.getActionView();
+        giftView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(LottieToolBarActivity.this, "lottie action_lottie_second click", Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "lottie action_lottie_second click ");
+                View xx = giftView2.findViewById(R.id.watch_animation);
+                if(xx instanceof  LottieAnimationView){
+                    ((LottieAnimationView) xx).playAnimation();
+                }
+            }
+        });
+
         MenuItem firstItem = menu.findItem(R.id.action_lottie_first);
 
         View giftView = firstItem.getActionView();
@@ -73,7 +88,7 @@ public class LottieToolBarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // todo
-                Log.i(TAG, "lottie clieck ");
+                Log.i(TAG, "lottie click ");
                 Toast.makeText(LottieToolBarActivity.this, "lottie click ", Toast.LENGTH_SHORT).show();
             }
         });
@@ -82,12 +97,18 @@ public class LottieToolBarActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        //用了动画 或lottie不进这里，原因不明，现在用在外面设置onClickListener的方法去解决。
         switch (item.getItemId()) {
             case R.id.action_lottie_first:
                 Toast.makeText(this, "action_anim_first button clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_lottie_second:
                 Toast.makeText(this, "action_anim_second button clicked", Toast.LENGTH_SHORT).show();
+                final View giftView2 = item.getActionView();
+                View xx = giftView2.findViewById(R.id.watch_animation);
+                if(xx instanceof  LottieAnimationView){
+                    ((LottieAnimationView) xx).playAnimation();
+                }
                 break;
             case R.id.action_lottie_third:
                 Toast.makeText(this, "action_anim_third button clicked", Toast.LENGTH_SHORT).show();
@@ -160,7 +181,7 @@ public class LottieToolBarActivity extends AppCompatActivity {
                 animateCameraIcon = new LottieDrawable();
                 animateCameraIcon.setComposition(result);
                 animateCameraIcon.setRepeatCount(LottieDrawable.INFINITE);
-                animateCameraIcon.setScale(5);
+//                animateCameraIcon.setScale(5);
                 animateCameraIcon.playAnimation();
                 animateCameraIcon.setSpeed(0.7f);
 

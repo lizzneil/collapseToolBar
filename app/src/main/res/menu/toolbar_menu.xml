@@ -20,9 +20,10 @@
 
         />
     <item
-        android:id="@+id/action_share"
+        android:id="@+id/action_badge_ex"
         android:icon="@drawable/ic_refresh_24dp"
         android:title="Remove"
+        android:iconTint="@color/black"
         app:showAsAction="ifRoom|withText"
         app:actionProviderClass="com.gabe.collapsetoolbar.badge.BadgeActionProvider"
         />
@@ -30,7 +31,9 @@
 <!--    app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"-->
     <item
         android:id="@+id/action_more"
+
         android:icon="@drawable/ic_menu_24dp"
+
         android:title="Remove"
         app:showAsAction="never"
         />

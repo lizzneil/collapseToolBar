@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-
         android:background="@drawable/shape_circle_red"
         android:gravity="center"
         android:text="0"

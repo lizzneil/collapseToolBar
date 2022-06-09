@@ -8,7 +8,7 @@
 <!--加 LinearLayout 并限定 宽高 是避免 图标大小 失控（有时会很宽，我看到的有3位宽的。）
    android:layout_width="?attr/actionBarSize"-->
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/watch_animation"
+        android:id="@+id/watch_animation_thumb_up"
         android:minWidth="?attr/actionBarSize"
         android:layout_width="32dp"
         android:layout_height="32dp"

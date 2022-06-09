@@ -1,22 +1,8 @@
 package com.gabe.collapsetoolbar;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.ContextThemeWrapper;
-import androidx.appcompat.view.menu.MenuBuilder;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.appcompat.widget.SearchView;
-//import androidx.appcompat.widget.ShareActionProvider;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NavUtils;
-import androidx.core.app.TaskStackBuilder;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.MenuItemCompat;
-
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -37,10 +23,20 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
+import androidx.core.app.TaskStackBuilder;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.MenuItemCompat;
+
 import com.gabe.collapsetoolbar.badge.BadgeActionProvider;
 import com.google.android.material.badge.BadgeDrawable;
-
-
 
 
 public class ExperimentToolbarActivity extends AppCompatActivity {
@@ -48,9 +44,43 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
 
     private static final String TAG = ExperimentToolbarActivity.class.getSimpleName();
     Toolbar myToolbar;
+    TextView txtViewCount;
+    int count = 0;
+    int badgeCnt = 0;
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.options, menu);
+//        // ...
+//
+//        // Define the listener
+//        MenuItem.OnActionExpandListener expandListener = new MenuItem.OnActionExpandListener() {
+//            @Override
+//            public boolean onMenuItemActionCollapse(MenuItem item) {
+//                // Do something when action item collapses
+//                return true;  // Return true to collapse action view
+//            }
+//
+//            @Override
+//            public boolean onMenuItemActionExpand(MenuItem item) {
+//                // Do something when expanded
+//                return true;  // Return true to expand action view
+//            }
+//        };
+//
+//        // Get the MenuItem for the action item
+//        MenuItem actionMenuItem = menu.findItem(R.id.myActionItem);
+//
+//        // Assign the listener to that action item
+//        MenuItemCompat.setOnActionExpandListener(actionMenuItem, expandListener);
+//
+//        // Any other things you have to do when creating the options menu...
+//
+//        return true;
+//    }
+    private BadgeActionProvider mBadgeActionProvider;
 
     public void toolbarAnimation() {
-        MenuItem item = myToolbar.getMenu().findItem(R.id.action_share);
+        MenuItem item = myToolbar.getMenu().findItem(R.id.action_badge_ex);
         if (item == null) return;
 
         // define the animation for rotation
@@ -68,7 +98,6 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
         imageView.startAnimation(animation);
         item.setActionView(imageView);
     }
-
 
     private void addBadge() {
 
@@ -136,15 +165,9 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_common_toolbar);
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
-
-
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         //使用自己的图标
 //        myToolbar.setNavigationIcon(R.drawable.your_icon);
 //        myToolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.ic_action_remove));
-
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -214,84 +237,52 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
 //
 //        // Enable the Up button
 //        ab.setDisplayHomeAsUpEnabled(true);
+
     }
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.options, menu);
-//        // ...
-//
-//        // Define the listener
-//        MenuItem.OnActionExpandListener expandListener = new MenuItem.OnActionExpandListener() {
-//            @Override
-//            public boolean onMenuItemActionCollapse(MenuItem item) {
-//                // Do something when action item collapses
-//                return true;  // Return true to collapse action view
-//            }
-//
-//            @Override
-//            public boolean onMenuItemActionExpand(MenuItem item) {
-//                // Do something when expanded
-//                return true;  // Return true to expand action view
-//            }
-//        };
-//
-//        // Get the MenuItem for the action item
-//        MenuItem actionMenuItem = menu.findItem(R.id.myActionItem);
-//
-//        // Assign the listener to that action item
-//        MenuItemCompat.setOnActionExpandListener(actionMenuItem, expandListener);
-//
-//        // Any other things you have to do when creating the options menu...
-//
-//        return true;
-//    }
 
     @Override
     public void onResume() {
         super.onResume();
 //        getSupportActionBar().setElevation(0);
     }
-    TextView  txtViewCount;
-    private void addBadge(Menu menu)
-    {
-        final View notificaitons = menu.findItem(R.id.action_share).getActionView();
 
-           txtViewCount = (TextView) notificaitons.findViewById(R.id.txtCount);
+//    private void addBadge(Menu menu) {
+//        final View notificaitons = menu.findItem(R.id.action_badge_ex).getActionView();
+//
+//        txtViewCount = (TextView) notificaitons.findViewById(R.id.txtCount);
+//
+//        if (null != txtViewCount) {
+//            txtViewCount.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    updateHotCount(count++);
+//                }
+//            });
+//        }
+//
+//        notificaitons.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //    TODO
+//                updateHotCount(count++);
+//            }
+//        });
+//    }
 
-           if(null!=txtViewCount){
-               txtViewCount.setOnClickListener(new View.OnClickListener() {
-                   @Override
-                   public void onClick(View v) {
-                       updateHotCount(count++);
-                   }
-               });
-           }
-
-        notificaitons.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //    TODO
-                updateHotCount(count++);
-            }
-        });
-    }
-
-    int count = 0;
     public void updateHotCount(final int new_hot_number) {
         count = new_hot_number;
         if (count < 0) return;
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                    if(null==txtViewCount)
-                        return;
+                if (null == txtViewCount)
+                    return;
                 count++;
-                if (count == 0){
+                if (count == 0) {
 
                     txtViewCount.setVisibility(View.GONE);
                     //
-                    }
-                else {
+                } else {
                     txtViewCount.setVisibility(View.VISIBLE);
                     txtViewCount.setText(Integer.toString(count));
                     // supportInvalidateOptionsMenu();
@@ -299,6 +290,7 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -317,31 +309,6 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
 //            it.getIcon().setTint(Color.BLUE);
 //        }
 
-//        Get a reference to the ShareActionProvider by calling getActionProvider()
-//        and passing the share action's MenuItem. For example:
-
-        MenuItem shareItem = menu.findItem(R.id.action_share);
-//        ShareActionProvider myShareActionProvider =
-//                (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-//
-//
-////        Create an intent with the Intent.ACTION_SEND action,
-////        and attach the content shared by the activity. For example, the following intent shares an image:
-//
-//        Intent myShareIntent = new Intent(Intent.ACTION_SEND);
-//        myShareIntent.setType("image/*");
-//        myShareIntent.putExtra(Intent.EXTRA_STREAM, (Bundle) null);//myShareIntent.putExtra(Intent.EXTRA_STREAM, myImageUri);
-////        Call setShareIntent() to attach this intent to the action provider:
-//
-//        myShareActionProvider.setShareIntent(myShareIntent);
-//
-////        When the content changes, modify the intent or create a new one,
-////        and call setShareIntent() again. For example:
-//
-//        // Image has changed! Update the intent:
-//        myShareIntent.putExtra(Intent.EXTRA_STREAM, (Bundle) null);//myShareIntent.putExtra(Intent.EXTRA_STREAM, myNewImageUri);
-//        myShareActionProvider.setShareIntent(myShareIntent);
-//
         MenuItem searchMenuItem = menu.findItem(R.id.action_search);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -394,7 +361,7 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
 
                 Toast.makeText(this, "search button clicked", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.action_share:
+            case R.id.action_badge_ex:
                 Toast.makeText(this, "remo button clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_more:
@@ -426,7 +393,25 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+//    OverFlow按钮显示图标
+//    overflow中的按钮默认是不显示图标的，它由MenuBuilder这个类的setOptionalIconsVisible方法来决定，
+//    如果我们在overflow被展开的时候给这个方法传入true，那么里面的每一个Action按钮对应的图标就都会显示出来了。
 
+
+//    @Override
+//    public boolean onMenuOpened(int featureId, Menu menu) {
+//        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
+//            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+//                try {
+//                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+//                    m.setAccessible(true);
+//                    m.invoke(menu, true);
+//                } catch (Exception e) {
+//                }
+//            }
+//        }
+//        return super.onMenuOpened(featureId, menu);
+//    }
 
     private PopupMenu initMenu(View aView) {
         PopupMenu mPopupMenu = new PopupMenu(new ContextThemeWrapper(this, R.style.xAppTheme), aView);
@@ -504,35 +489,12 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
         });
         return popWindow;
     }
-//    OverFlow按钮显示图标
-//    overflow中的按钮默认是不显示图标的，它由MenuBuilder这个类的setOptionalIconsVisible方法来决定，
-//    如果我们在overflow被展开的时候给这个方法传入true，那么里面的每一个Action按钮对应的图标就都会显示出来了。
 
-
-//    @Override
-//    public boolean onMenuOpened(int featureId, Menu menu) {
-//        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
-//            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-//                try {
-//                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
-//                    m.setAccessible(true);
-//                    m.invoke(menu, true);
-//                } catch (Exception e) {
-//                }
-//            }
-//        }
-//        return super.onMenuOpened(featureId, menu);
-//    }
-
-
-
-    private BadgeActionProvider mBadgeActionProvider;
-int badgeCnt = 0;
     private void initToolBar() {
         Toolbar mToolBar = this.myToolbar;
         //ToolBar 初始化 menu
 //        mToolBar.inflateMenu(R.menu.toolbar_menu);
-        MenuItem menuItem = mToolBar.getMenu().findItem(R.id.action_share);
+        MenuItem menuItem = mToolBar.getMenu().findItem(R.id.action_badge_ex);
         mBadgeActionProvider = (BadgeActionProvider) MenuItemCompat.getActionProvider(menuItem);
         mBadgeActionProvider.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -540,7 +502,6 @@ int badgeCnt = 0;
                 badgeCnt++;
                 mBadgeActionProvider.setBadge(badgeCnt);
 //                Toast.makeText(CommonToolbarActivity.this,"来一下 \t now :"+badgeCnt,Toast.LENGTH_LONG).show();
-
             }
         });
     }
