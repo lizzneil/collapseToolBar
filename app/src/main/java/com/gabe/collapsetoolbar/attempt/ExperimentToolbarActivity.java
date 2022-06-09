@@ -1,4 +1,4 @@
-package com.gabe.collapsetoolbar;
+package com.gabe.collapsetoolbar.attempt;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -35,6 +36,7 @@ import androidx.core.app.TaskStackBuilder;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuItemCompat;
 
+import com.gabe.collapsetoolbar.R;
 import com.gabe.collapsetoolbar.badge.BadgeActionProvider;
 import com.google.android.material.badge.BadgeDrawable;
 
@@ -171,6 +173,19 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        Button OpenBottomSheet = findViewById(R.id.open_bottom_sheet);
+
+        OpenBottomSheet.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        BottomSheetDialog bottomSheet = new BottomSheetDialog();
+                        bottomSheet.show(getSupportFragmentManager(),
+                                "ModalBottomSheet");
+                    }
+                });
 
         //去掉TOOLbar的阴影  透明底时，阴影就明显了。
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

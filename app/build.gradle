@@ -32,7 +32,8 @@ android {
                 'src/main/java/com/gabe/collapsetoolbar/badge/res',
                 'src/main/java/com/gabe/collapsetoolbar/search/res',
                 'src/main/java/com/gabe/collapsetoolbar/animation/res',
-                'src/main/java/com/gabe/collapsetoolbar/share/res'
+                'src/main/java/com/gabe/collapsetoolbar/share/res',
+                'src/main/java/com/gabe/collapsetoolbar/attempt/res'
         ]
     }
 }

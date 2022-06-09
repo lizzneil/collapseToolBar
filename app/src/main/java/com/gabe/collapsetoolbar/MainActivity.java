@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.gabe.collapsetoolbar.animation.AnimationToolbarActivity;
+import com.gabe.collapsetoolbar.attempt.ExperimentToolbarActivity;
 import com.gabe.collapsetoolbar.badge.BadgeToolbarActivity;
 import com.gabe.collapsetoolbar.lottie.LottieToolBarActivity;
 import com.gabe.collapsetoolbar.search.SearchToolBarActivity;

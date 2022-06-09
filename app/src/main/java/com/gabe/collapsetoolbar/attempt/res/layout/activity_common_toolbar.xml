@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExperimentToolbarActivity"
+    tools:context=".attempt.ExperimentToolbarActivity"
     android:background="@drawable/image" >
 <!--    <androidx.appcompat.widget.Toolbar>-->
 
@@ -106,10 +106,21 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"   />
 
-    <Button android:layout_height="50dp" android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/sdfs"
+        android:layout_height="50dp" android:layout_width="wrap_content"
         android:text="hhh "
         android:background="@android:color/transparent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView"
         android:outlineProvider="bounds"   />
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/open_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sdfs"
+        android:text="Open Modal Bottom Sheet" />
 </androidx.constraintlayout.widget.ConstraintLayout>

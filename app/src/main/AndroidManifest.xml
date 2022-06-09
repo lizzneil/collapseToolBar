@@ -39,7 +39,7 @@
                 android:value="com.gabe.collapsetoolbar.MainActivity" />
         </activity>
         <activity
-            android:name=".ExperimentToolbarActivity"
+            android:name=".attempt.ExperimentToolbarActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             android:theme="@style/xAppTheme">
