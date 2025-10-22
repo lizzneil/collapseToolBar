@@ -1,5 +1,6 @@
 package com.gabe.collapsetoolbar.attempt;
 
+import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -306,6 +307,7 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -369,43 +371,35 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
+        int itemId = item.getItemId();
 
-                Toast.makeText(this, "search button clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_badge_ex:
-                Toast.makeText(this, "remo button clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_more:
-                Toast.makeText(this, "more button clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.other_item:
-                Toast.makeText(this, "other button clicked", Toast.LENGTH_SHORT).show();
-
-//                    initMenu(myToolbar).show();
-                popWindow2(myToolbar);
-                break;
-
-            case android.R.id.home:
-//                Navigation和Menu的关系
-//
-//                实际上Navigation也属于menu，它的id是android.R.id.home，可以在onOptionsItemSelected中对它进行监听
-                Intent upIntent = NavUtils.getParentActivityIntent(this);
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
-                    TaskStackBuilder.create(this)
-                            .addNextIntentWithParentStack(upIntent)
-                            .startActivities();
-                } else {
-                    upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    NavUtils.navigateUpTo(this, upIntent);
-                }
-                return true;
-            default:
-                break;
+        if (itemId == R.id.action_search) {
+            Toast.makeText(this, "search button clicked", Toast.LENGTH_SHORT).show();
+        } else if (itemId == R.id.action_badge_ex) {
+            Toast.makeText(this, "remo button clicked", Toast.LENGTH_SHORT).show();
+        } else if (itemId == R.id.action_more) {
+            Toast.makeText(this, "more button clicked", Toast.LENGTH_SHORT).show();
+        } else if (itemId == R.id.other_item) {
+            Toast.makeText(this, "other button clicked", Toast.LENGTH_SHORT).show();
+            popWindow2(myToolbar);
+        } else if (itemId == android.R.id.home) {
+            // Navigation和Menu的关系
+            // 实际上Navigation也属于menu，它的id是android.R.id.home，可以在onOptionsItemSelected中对它进行监听
+            Intent upIntent = NavUtils.getParentActivityIntent(this);
+            if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+                TaskStackBuilder.create(this)
+                        .addNextIntentWithParentStack(upIntent)
+                        .startActivities();
+            } else {
+                upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                NavUtils.navigateUpTo(this, upIntent);
+            }
+            return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 //    OverFlow按钮显示图标
@@ -428,6 +422,7 @@ public class ExperimentToolbarActivity extends AppCompatActivity {
 //        return super.onMenuOpened(featureId, menu);
 //    }
 
+    @SuppressLint("RestrictedApi")
     private PopupMenu initMenu(View aView) {
         PopupMenu mPopupMenu = new PopupMenu(new ContextThemeWrapper(this, R.style.xAppTheme), aView);
         Menu menu = mPopupMenu.getMenu();

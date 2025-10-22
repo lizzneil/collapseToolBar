@@ -11,4 +11,15 @@
 
     <color name="divide_line_color">#FF018786</color>
 
+
+    <color name="color_fff3f5f9">#fff3f5f9</color>
+    <color name="color_trans">#00000000</color>
+    <color name="color_60000000">#60000000</color>
+    <color name="color_1A000000">#1A000000</color>
+    <color name="color_FFFFFFFF">#FFFFFFFF</color>
+    <color name="color_ACB1B6">#ACB1B6</color>
+    <color name="color_EFEFEF">#EFEFEF</color>
+
+    <color name="red">#ff0000</color>
+
 </resources>

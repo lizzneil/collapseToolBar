@@ -7,6 +7,7 @@ import androidx.core.app.NavUtils;
 import androidx.core.app.TaskStackBuilder;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -37,6 +38,7 @@ public class AnimationToolbarActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -83,31 +85,32 @@ public class AnimationToolbarActivity extends AppCompatActivity {
     }
 
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_animation_second:
-                Toast.makeText(this, "action_animation_second button clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_animation_first:
-                Toast.makeText(this, "action_animation_first button clicked", Toast.LENGTH_SHORT).show();
-                break;
 
-            case android.R.id.home:
-//                Navigation和Menu的关系
-//                实际上Navigation也属于menu，它的id是android.R.id.home，可以在onOptionsItemSelected中对它进行监听
-                Intent upIntent = NavUtils.getParentActivityIntent(this);
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
-                    TaskStackBuilder.create(this)
-                            .addNextIntentWithParentStack(upIntent)
-                            .startActivities();
-                } else {
-                    upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    NavUtils.navigateUpTo(this, upIntent);
-                }
-                return true;
-            default:
-                break;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.action_animation_second) {
+            Toast.makeText(this, "action_animation_second button clicked", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (itemId == R.id.action_animation_first) {
+            Toast.makeText(this, "action_animation_first button clicked", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (itemId == android.R.id.home) {
+            // Navigation和Menu的关系
+            // 实际上Navigation也属于menu，它的id是android.R.id.home，可以在onOptionsItemSelected中对它进行监听
+            Intent upIntent = NavUtils.getParentActivityIntent(this);
+            if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+                TaskStackBuilder.create(this)
+                        .addNextIntentWithParentStack(upIntent)
+                        .startActivities();
+            } else {
+                upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                NavUtils.navigateUpTo(this, upIntent);
+            }
+            return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }
